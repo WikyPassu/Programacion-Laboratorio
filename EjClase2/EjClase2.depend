@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553457791 source:c:\users\alan_\desktop\archivos varios\c proyectos\ejclase2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
