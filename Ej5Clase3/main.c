@@ -1,3 +1,5 @@
+//Fuimos haciendo funcion por funcion para luego unificarlas todas en un ejercicio.
+
 #include <stdio.h>
 #include <stdlib.h>
 
