@@ -1,5 +1,4 @@
 void mostrarMenu();
+char elegirOpcion();
 int ingresarNumero();
-void calcularOperaciones(int,int);
-void mostrarResultados();
-int elegirOpcion();
+int comprobarVariables(int est_a, int est_b);
