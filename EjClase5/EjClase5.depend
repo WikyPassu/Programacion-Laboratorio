@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1554130424 source:c:\users\alumno\desktop\programacion-laboratorio\ejclase5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Numeros.h"
+
+1554129836 c:\users\alumno\desktop\programacion-laboratorio\ejclase5\numeros.h
+
+1554130389 source:c:\users\alumno\desktop\programacion-laboratorio\ejclase5\numeros.c
+	<stdio.h>
+	<stdlib.h>
+	"Numeros.h"
+
