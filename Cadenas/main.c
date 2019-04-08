@@ -5,10 +5,14 @@
 int main()
 {
     int len;
-    char palabra[10]; //Siempre necesito uno mas para la finalizacion '\0'
+    char palabra[20]; //Siempre necesito uno mas para la finalizacion '\0'
     printf("Ingrese nombre y apellido: ");
-    gets(palabra); //Solo funciona en Windows
-    len = strlen(palabra); //Permite conocer el tamaño en bytes de una cadena
+    //gets(palabra); //Solo funciona en Windows
+    fgets(palabra, 20, stdin);
+    len = strlen(palabra);
+    palabra[len] = '\0';
+
+    //len = strlen(palabra); //Permite conocer el tamaño en bytes de una cadena
     printf("\nLa palabra es: %s\nCantidad de caracteres: %d", palabra, len);
     return 0;
 }

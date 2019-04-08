@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1554755117 source:c:\users\alan_\desktop\programacion-laboratorio\ejcadenas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
