@@ -41,3 +41,17 @@ int buscarValor(int vecNum[], int tam, int valor)
     }
     return -1;
 }
+
+void ordenarVector(int vecNum[], int tam) //Swap = Intercambiar
+{
+    int i,j,aux;
+    for(i=0; i<tam-1; i++){ //Itero hasta la anteultima posicion
+        for(j=i+1; j<tam; j++){ //j debe ir a la par de i
+            if(vecNum[i] > vecNum[j]){ //Criterio: Ordenar menor a mayor
+                aux = vecNum[i]; //Realizo los intercambios con una variable auxiliar
+                vecNum[i] = vecNum[j];
+                vecNum[j] = aux;
+            }
+        }
+    }
+}

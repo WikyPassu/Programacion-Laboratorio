@@ -20,6 +20,10 @@ int main()
     else{
         printf("\nValor no encontrado dentro del vector.\n");
     }
+    ordenarVector(numeros,T);
+    printf("\n");
+    mostrarVector(numeros,T);
+    printf("\n");
     return 0;
 }
 
