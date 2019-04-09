@@ -3,68 +3,49 @@
 #include <string.h>
 #include <ctype.h>
 
+void pedirCadena(char[], char[], int);
+void validarTamCadena(char[], char[], int);
+
 int main()
 {
-    int i, flag = 0;
-    char nombre[20], apellido[20], apellidoNombre[50];
-    printf("Ingrese nombre: ");
-    gets(nombre);
-    printf("Ingrese apellido: ");
-    gets(apellido);
+    char nombre[20], apellido[20], apellidoNombre[41] = "";
+    int i = 0;
 
-    strlwr(nombre);
-    strlwr(apellido);
+    pedirCadena("nombre: ", nombre, 20);
+    pedirCadena("apellido: ", apellido, 20);
 
-    for(i = 0; i < strlen(nombre); i++){
-        if(flag == 0 && nombre[i] != 32){
-            nombre[i] = toupper(nombre[i]);
-            flag = 1;
+    strcat(apellidoNombre, apellido);
+    strcat(apellidoNombre, ", ");
+    strcat(apellidoNombre, nombre);
+
+    strlwr(apellidoNombre);
+
+    apellidoNombre[0] = toupper(apellidoNombre[0]);
+
+    while(apellidoNombre[i] != '\0'){
+        if(apellidoNombre[i] == ' '){
+            apellidoNombre[i+1] = toupper(apellidoNombre[0]);
         }
-        if(nombre[i] == 32){
-            flag = 0;
-        }
-    }
-    flag = 0;
-    for(i = 0; i < strlen(apellido); i++){
-        if(flag == 0 && apellido[i] != 32){
-            apellido[i] = toupper(apellido[i]);
-            flag = 1;
-        }
-        if(apellido[i] == 32){
-            flag = 0;
-        }
+        i++;
     }
 
-    strcpy(apellidoNombre,apellido);
-    strcat(apellidoNombre,", ");
-    strcat(apellidoNombre,nombre);
-
-    printf("\n%s\n", apellidoNombre);
-
+    puts(apellidoNombre);
     return 0;
 }
 
-/*
-int main()
+void pedirCadena(char mensaje[], char cadena[], int tam)
 {
-    char nombre[15], apellido[15], auxNombre[2], auxApellido[2];
-
-    printf("Ingrese nombre: ");
-    gets(nombre);
-    printf("Ingrese apellido: ");
-    gets(apellido);
-
-    strlwr(nombre);
-    strlwr(apellido);
-    strncpy(auxNombre,nombre,1);
-    strupr(auxNombre);
-    strncpy(auxApellido,apellido,1);
-    strupr(auxApellido);
-
-    nombre[0] = auxNombre[0];
-    apellido[0] = auxApellido[0];
-
-    printf("\n%s, %s\n", apellido, nombre);
-    return 0;
+    printf("Ingrese %s", mensaje);
+    fflush(stdin);
+    scanf("%[^\n]", cadena);
+    validarTamCadena(mensaje, cadena, tam);
 }
-*/
+
+void validarTamCadena(char mensajeError[], char cadena[], int tam)
+{
+    while(strlen(cadena) > tam){
+        printf("Reingrese %s", mensajeError);
+        fflush(stdin);
+        scanf("%[^\n]", cadena);
+    }
+}
