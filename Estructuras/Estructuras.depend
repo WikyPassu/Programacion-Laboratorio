@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1555338051 source:c:\users\alumno\desktop\programacion-laboratorio-master\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Entradas.h"
+
+1555337415 source:c:\users\alumno\desktop\programacion-laboratorio-master\estructuras\entradas.c
+	<stdio.h>
+	<stdlib.h>
+	"Entradas.h"
+
+1555337939 c:\users\alumno\desktop\programacion-laboratorio-master\estructuras\entradas.h
+
