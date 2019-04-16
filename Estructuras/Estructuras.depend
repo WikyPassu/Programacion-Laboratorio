@@ -24,3 +24,27 @@
 	<stdlib.h>
 	"Entradas.h"
 
+1555422654 source:c:\users\alumno\desktop\programacion-laboratorio\estructuras\entradas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+
+1555426320 c:\users\alumno\desktop\programacion-laboratorio\estructuras\entradas.h
+
+1555420953 source:c:\users\alumno\desktop\programacion-laboratorio\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Entradas.h"
+	"Empleado.h"
+
+1555422801 c:\users\alumno\desktop\programacion-laboratorio\estructuras\empleado.h
+	"Entradas.h"
+
+1555424445 source:c:\users\alumno\desktop\programacion-laboratorio\estructuras\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+	"Empleado.h"
+
