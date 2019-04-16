@@ -5,8 +5,6 @@
 #define LIBRE 0
 #define OCUPADO 1
 
-//Tengo que revisar un par de bugs en cada opcion y hacer funciones aparte para ingreso de datos.
-
 typedef struct
 {
     int legajo;
@@ -41,7 +39,7 @@ void mostrarMenu()
     printf("\n 2. Dar de baja a un empleado.");
     printf("\n 3. Mostrar todos los empleados.");
     printf("\n 4. Salir.\n\n");
-    printf("-----------------------------------\n");
+    printf("-----------------------------------\n\n");
 }
 
 void elegirOpcion()
@@ -49,25 +47,26 @@ void elegirOpcion()
     eEmpleado lista[T];
     mostrarMenu();
     inicializarEmpleados(lista, T);
-    int opcion, sePudo;
-    char seguir = 's', sOpcion[2];
+    int opcion, aBorrar, borrado;
+    char seguir = 's';
     do{
         mostrarMenu();
-        printf("\nElija una opcion: ");
-        scanf("%s",sOpcion);
-        opcion = atoi(sOpcion);
+        opcion = getEntero("una opcion: ");
         switch(opcion){
             case 1:
+                printf("\n");
                 cargarEmpleado(lista, T);
                 system("pause");
                 break;
             case 2:
-                sePudo = borrarUno(lista, T, 3);
-                if(sePudo != 0){
-                    printf("\nSe ha dado de baja al empleado exitosamente.");
+                printf("\n");
+                aBorrar = getEntero("el legajo del empleado a dar de baja: ");
+                borrado = borrarUno(lista, T, aBorrar);
+                if(borrado != 0){
+                    printf("\nSe ha dado de baja al empleado exitosamente.\n\n");
                 }
                 else{
-                    printf("\nError: Empleado no encontrado.");
+                    printf("\nError: Empleado no encontrado.\n\n");
                 }
                 system("pause");
                 break;
@@ -76,7 +75,7 @@ void elegirOpcion()
                 system("pause");
                 break;
             case 4:
-                printf("\nSaliendo...\n\n");
+                printf("\nSaliendo...\n\nPrograma terminado.\n\n");
                 seguir = 'n';
                 system("pause");
                 break;
@@ -122,7 +121,7 @@ int borrarUno(eEmpleado lista[], int tam, int legajo)
 {
     int sePudo = 0, pos = buscarUno(lista, tam, legajo);
     if(pos != -1){
-        lista[pos].estado == LIBRE;
+        lista[pos].estado = LIBRE;
         sePudo = 1;
     }
     return sePudo;
@@ -130,26 +129,18 @@ int borrarUno(eEmpleado lista[], int tam, int legajo)
 
 void cargarEmpleado(eEmpleado lista[], int tam)
 {
-    int i, pos;
-    for(i=0; i<tam; i++){
-        pos = buscarLibre(lista, tam);
-        if(pos != -1){
-            printf("\nIngrese legajo: ");
-            scanf("%d", &lista[pos].legajo);
-            printf("Ingrese nombre: ");
-            fflush(stdin);
-            gets(lista[pos].nombre);
-            printf("Ingrese sexo (m o f): ");
-            fflush(stdin);
-            scanf("%c", &lista[pos].sexo);
-            printf("Ingrese sueldo bruto: ");
-            scanf("%f", &lista[pos].sueldoBruto);
-            lista[pos].sueldoNeto = lista[pos].sueldoBruto*0.85;
-            lista[pos].estado = OCUPADO;
-        }
-        else{
-            printf("\nError: No hay mas espacio libre.");
-        }
+    int pos;
+    pos = buscarLibre(lista, tam);
+    if(pos != -1){
+        lista[pos].legajo = getEntero("legajo: ");
+        getCadena("nombre: ", lista[pos].nombre, 20);
+        lista[pos].sexo = getCaracter("sexo: ");
+        lista[pos].sueldoBruto = getFlotante("sueldo bruto: ");
+        lista[pos].sueldoNeto = lista[pos].sueldoBruto*0.85;
+        lista[pos].estado = OCUPADO;
+    }
+    else{
+        printf("Error: No hay mas espacio libre.\n\n");
     }
     printf("\n");
 }
@@ -157,9 +148,13 @@ void cargarEmpleado(eEmpleado lista[], int tam)
 void mostrarListaEmpleados(eEmpleado lista[], int tam)
 {
     int i;
+    printf("\n");
     for(i=0; i<tam; i++){
-        mostrarEmpleado(lista[i]);
+        if(lista[i].estado == OCUPADO){
+            mostrarEmpleado(lista[i]);
+        }
     }
+    printf("\n");
 }
 
 void mostrarEmpleado(eEmpleado unEmpleado)
