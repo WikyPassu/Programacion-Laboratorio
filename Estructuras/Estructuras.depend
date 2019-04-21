@@ -11,18 +11,19 @@
 
 1555337939 c:\users\alumno\desktop\programacion-laboratorio-master\estructuras\entradas.h
 
-1555382168 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.c
+1555792795 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Entradas.h"
 
-1555375671 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.h
+1555792452 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.h
 
-1555382660 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
+1555427248 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	"Entradas.h"
+	"Empleado.h"
 
 1555422654 source:c:\users\alumno\desktop\programacion-laboratorio\estructuras\entradas.c
 	<stdio.h>
@@ -42,6 +43,16 @@
 	"Entradas.h"
 
 1555424445 source:c:\users\alumno\desktop\programacion-laboratorio\estructuras\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+	"Empleado.h"
+
+1555792248 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.h
+	"Entradas.h"
+
+1555792764 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

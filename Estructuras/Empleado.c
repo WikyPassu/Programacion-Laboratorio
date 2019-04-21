@@ -7,7 +7,8 @@
 void mostrarMenu(int tipoMenu)
 {
     system("cls");
-    if(tipoMenu == 0){
+    if(tipoMenu == 0)
+    {
         printf("-----------------------------------\n");
         printf("\n 1. Dar de alta a un empleado.");
         printf("\n 2. Dar de baja a un empleado.");
@@ -16,7 +17,8 @@ void mostrarMenu(int tipoMenu)
         printf("\n 5. Salir.\n\n");
         printf("-----------------------------------\n\n");
     }
-    if(tipoMenu == 1){
+    if(tipoMenu == 1)
+    {
         printf("-----------------------------------\n");
         printf("\n 1. Modificar nombre.");
         printf("\n 2. Modificar sexo.");
@@ -32,69 +34,82 @@ void elegirOpcion()
     inicializarEmpleados(lista, T);
     int opcion, contEmpleados = 0, aBorrar, borrado;
     char seguir = 's';
-    do{
+    do
+    {
         mostrarMenu(0);
-        opcion = getEntero("una opcion: ");
-        switch(opcion){
-            case 1:
-                printf("\n");
-                cargarEmpleado(lista, T);
-                contEmpleados++;
-                system("pause");
-                break;
-            case 2:
-                printf("\n");
-                if(contEmpleados > 0){
-                    aBorrar = getEntero("el legajo del empleado a dar de baja: ");
-                    borrado = borrarUno(lista, T, aBorrar);
-                    if(borrado != 0){
-                        printf("\nSe ha dado de baja al empleado exitosamente.\n\n");
-                        contEmpleados--;
-                    }
-                    else{
-                        printf("\nError: Empleado no encontrado.\n\n");
-                    }
+        opcion = getInt("una opcion: ");
+        switch(opcion)
+        {
+        case 1:
+            printf("\n");
+            cargarEmpleado(lista, T);
+            contEmpleados++;
+            system("pause");
+            break;
+        case 2:
+            printf("\n");
+            if(contEmpleados > 0)
+            {
+                aBorrar = getInt("el legajo del empleado a dar de baja: ");
+                borrado = borrarUno(lista, T, aBorrar);
+                if(borrado != 0)
+                {
+                    printf("\nSe ha dado de baja al empleado exitosamente.\n\n");
+                    contEmpleados--;
                 }
-                else{
-                    printf("Error: No hay empleados cargados en el sistema.\n\n");
+                else
+                {
+                    printf("\nError: Empleado no encontrado.\n\n");
                 }
+            }
+            else
+            {
+                printf("Error: No hay empleados cargados en el sistema.\n\n");
+            }
+            system("pause");
+            break;
+        case 3:
+            if(contEmpleados > 0)
+            {
+                modificarDatos(lista, T);
+            }
+            else
+            {
+                printf("\nError: No hay empleados cargados en el sistema.\n\n");
                 system("pause");
-                break;
-            case 3:
-                if(contEmpleados > 0){
-                    modificarDatos(lista, T);
-                }
-                else{
-                    printf("\nError: No hay empleados cargados en el sistema.\n\n");
-                }
-                system("pause");
-                break;
-            case 4:
-                if(contEmpleados > 0){
-                    mostrarListaEmpleados(lista, T);
-                }
-                else{
-                    printf("\nError: No hay empleados cargados en el sistema.\n\n");
-                }
-                system("pause");
-                break;
-            case 5:
-                printf("\nSaliendo...\n\nPrograma terminado.\n\n");
-                seguir = 'n';
-                system("pause");
-                break;
-            default:
-                printf("\nError: Opcion invalida.\n\n");
-                system("pause");
-                break;
+            }
+
+            break;
+        case 4:
+            if(contEmpleados > 0)
+            {
+                mostrarListaEmpleados(lista, T);
+            }
+            else
+            {
+                printf("\nError: No hay empleados cargados en el sistema.\n\n");
+            }
+            system("pause");
+            break;
+        case 5:
+            printf("\nSaliendo...\n\nPrograma terminado.\n\n");
+            seguir = 'n';
+            system("pause");
+            break;
+        default:
+            printf("\nError: Opcion invalida.\n\n");
+            system("pause");
+            break;
         }
-    }while(seguir == 's');
+    }
+    while(seguir == 's');
 }
 
 void inicializarEmpleados(eEmpleado lista[], int tam)
 {
     int i;
-    for(i=0; i<tam; i++){
+    for(i=0; i<tam; i++)
+    {
         lista[i].estado = LIBRE;
     }
 }
@@ -102,8 +117,10 @@ void inicializarEmpleados(eEmpleado lista[], int tam)
 int buscarLibre(eEmpleado lista[], int tam)
 {
     int i, posLibre = -1;
-    for(i=0; i<tam; i++){
-        if(lista[i].estado == LIBRE){
+    for(i=0; i<tam; i++)
+    {
+        if(lista[i].estado == LIBRE)
+        {
             posLibre = i;
             break;
         }
@@ -111,11 +128,13 @@ int buscarLibre(eEmpleado lista[], int tam)
     return posLibre;
 }
 
-int buscarUno(eEmpleado lista[], int tam, int legajo)
+int buscarLegajo(eEmpleado lista[], int tam, int legajo)
 {
     int i, pos = -1;
-    for(i=0; i<tam; i++){
-        if(lista[i].legajo == legajo && lista[i].estado == OCUPADO){
+    for(i=0; i<tam; i++)
+    {
+        if(lista[i].legajo == legajo && lista[i].estado == OCUPADO)
+        {
             pos = i;
             break;
         }
@@ -125,8 +144,9 @@ int buscarUno(eEmpleado lista[], int tam, int legajo)
 
 int borrarUno(eEmpleado lista[], int tam, int legajo)
 {
-    int sePudo = 0, pos = buscarUno(lista, tam, legajo);
-    if(pos != -1){
+    int sePudo = 0, pos = buscarLegajo(lista, tam, legajo);
+    if(pos != -1)
+    {
         lista[pos].estado = LIBRE;
         sePudo = 1;
     }
@@ -137,15 +157,17 @@ void cargarEmpleado(eEmpleado lista[], int tam)
 {
     int pos;
     pos = buscarLibre(lista, tam);
-    if(pos != -1){
-        lista[pos].legajo = getEntero("legajo: ");
-        getCadena("nombre: ", lista[pos].nombre, 20);
-        lista[pos].sexo = getCaracter("sexo: ");
-        lista[pos].sueldoBruto = getFlotante("sueldo bruto: ");
+    if(pos != -1)
+    {
+        lista[pos].legajo = getInt("legajo: ");
+        getString("nombre: ", lista[pos].nombre, 20);
+        lista[pos].sexo = getChar("sexo: ");
+        lista[pos].sueldoBruto = getFloat("sueldo bruto: ");
         lista[pos].sueldoNeto = lista[pos].sueldoBruto*0.85;
         lista[pos].estado = OCUPADO;
     }
-    else{
+    else
+    {
         printf("Error: No hay mas espacio libre.\n");
     }
     printf("\n");
@@ -154,41 +176,47 @@ void cargarEmpleado(eEmpleado lista[], int tam)
 void modificarDatos(eEmpleado lista[], int tam)
 {
     printf("\n");
-    int legajo = getEntero("legajo del empleado: ");
-    int opcion, pos = buscarUno(lista, tam, legajo);
-    if(pos != -1 && lista[pos].estado == 1){
-        do{
+    int legajo = getInt("legajo del empleado: ");
+    int opcion, pos = buscarLegajo(lista, tam, legajo);
+    if(pos != -1 && lista[pos].estado == 1)
+    {
+        do
+        {
             mostrarMenu(1);
-            opcion = getEntero("una opcion: ");
-            switch(opcion){
-                case 1:
-                    printf("\n");
-                    getCadena("nuevo nombre: ", lista[pos].nombre, 20);
-                    printf("\nLa modificacion ha sido exitosa.\n\n");
-                    system("pause");
-                    break;
-                case 2:
-                    printf("\n");
-                    lista[pos].sexo = getCaracter("nuevo sexo: ");
-                    printf("\nLa modificacion ha sido exitosa.\n\n");
-                    system("pause");
-                    break;
-                case 3:
-                    printf("\n");
-                    lista[pos].sueldoBruto = getFlotante("nuevo sueldo bruto: ");
-                    printf("\nLa modificacion ha sido exitosa.\n\n");
-                    system("pause");
-                    break;
-                case 4:
-                    break;
-                default:
-                    printf("\nError: Opcion invalida.\n\n");
-                    system("pause");
-                    break;
+            opcion = getInt("una opcion: ");
+            switch(opcion)
+            {
+            case 1:
+                printf("\n");
+                getString("nuevo nombre: ", lista[pos].nombre, 20);
+                printf("\nLa modificacion ha sido exitosa.\n\n");
+                system("pause");
+                break;
+            case 2:
+                printf("\n");
+                lista[pos].sexo = getChar("nuevo sexo: ");
+                printf("\nLa modificacion ha sido exitosa.\n\n");
+                system("pause");
+                break;
+            case 3:
+                printf("\n");
+                lista[pos].sueldoBruto = getFloat("nuevo sueldo bruto: ");
+                lista[pos].sueldoNeto = lista[pos].sueldoBruto * 0.85;
+                printf("\nLa modificacion ha sido exitosa.\n\n");
+                system("pause");
+                break;
+            case 4:
+                break;
+            default:
+                printf("\nError: Opcion invalida.\n\n");
+                system("pause");
+                break;
             }
-        }while(opcion != 4);
+        }
+        while(opcion != 4);
     }
-    else{
+    else
+    {
         printf("\nError: Empleado no encontrado.\n\n");
     }
 }
@@ -197,8 +225,10 @@ void mostrarListaEmpleados(eEmpleado lista[], int tam)
 {
     int i;
     printf("\n");
-    for(i=0; i<tam; i++){
-        if(lista[i].estado == OCUPADO){
+    for(i=0; i<tam; i++)
+    {
+        if(lista[i].estado == OCUPADO)
+        {
             mostrarEmpleado(lista[i]);
         }
     }
@@ -213,10 +243,10 @@ void mostrarEmpleado(eEmpleado unEmpleado)
 void hardcodearDatosEmpleados(eEmpleado lista[], int tam)
 {
     int i;
-    int legajos[]={1,8,9,7,2,4};
-    char nombres[][50]={"Maria","Pedro","Jose","Pedro","Pablo","Mateo"};
-    char sexo[]={'F','M','M','M','M','M'};
-    float sueldosBruto[]={1000,2000,3000,4000,5000,6000};
+    int legajos[]= {1,8,9,7,2,4};
+    char nombres[][50]= {"Maria","Pedro","Jose","Pedro","Pablo","Mateo"};
+    char sexo[]= {'F','M','M','M','M','M'};
+    float sueldosBruto[]= {1000,2000,3000,4000,5000,6000};
     for(i=0; i<tam; i++)
     {
         lista[i].legajo = legajos[i];

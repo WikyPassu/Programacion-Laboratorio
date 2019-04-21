@@ -3,7 +3,7 @@
 #include <string.h>
 #include "Entradas.h"
 
-int getEntero(char mensaje[])
+int getInt(char mensaje[])
 {
     int entero;
     printf("Ingrese %s", mensaje);
@@ -11,7 +11,7 @@ int getEntero(char mensaje[])
     return entero;
 }
 
-float getFlotante(char mensaje[])
+float getFloat(char mensaje[])
 {
     float flotante;
     printf("Ingrese %s", mensaje);
@@ -19,7 +19,7 @@ float getFlotante(char mensaje[])
     return flotante;
 }
 
-char getCaracter(char mensaje[])
+char getChar(char mensaje[])
 {
     char caracter;
     printf("Ingrese %s", mensaje);
@@ -28,15 +28,15 @@ char getCaracter(char mensaje[])
     return caracter;
 }
 
-void getCadena(char mensaje[], char cadena[], int tam)
+void getString(char mensaje[], char cadena[], int tam)
 {
     printf("Ingrese %s", mensaje);
     fflush(stdin);
     scanf("%[^\n]", cadena);
-    validarTamCadena(mensaje, cadena, tam);
+    validateStringSize(mensaje, cadena, tam);
 }
 
-void validarTamCadena(char mensajeError[], char cadena[], int tam)
+void validateStringSize(char mensajeError[], char cadena[], int tam)
 {
     while(strlen(cadena)>tam)
     {

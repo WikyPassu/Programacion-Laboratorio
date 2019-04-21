@@ -1,5 +1,5 @@
-int getEntero(char[]);
-float getFlotante(char[]);
-char getCaracter(char[]);
-void getCadena(char[], char[], int);
-void validarTamCadena(char[], char[], int);
+int getInt(char[]);
+float getFloat(char[]);
+char getChar(char[]);
+void getString(char[], char[], int);
+void validateStringSize(char[], char[], int);
