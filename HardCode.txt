@@ -1,0 +1,19 @@
+void hardcodearDatosEmpleados(eEmpleado lista[], int tam)
+{
+    int i;
+    int legajos[]={1,8,9,7,2,4};
+    char nombres[][50]={"Carlos","Maria","Carlos","Pedro","Carlos","Mateo"};
+    char sexo[]={'M','F','M','M','M','M'};
+    float sueldosBruto[]={22000,22000,15000,4000,21000,6000};
+
+    for(i=0; i<tam; i++)
+    {
+        lista[i].legajo = legajos[i];
+        strcpy(lista[i].nombre, nombres[i]);
+        lista[i].sexo = sexo[i];
+        lista[i].sueldoBruto = sueldosBruto[i];
+        lista[i].sueldoNeto = sueldosBruto[i] * 0.85;
+        lista[i].estado = OCUPADO;
+
+    }
+}

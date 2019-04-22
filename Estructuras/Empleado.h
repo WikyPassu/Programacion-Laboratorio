@@ -1,5 +1,5 @@
 #include "Entradas.h"
-#define T 3
+#define T 6
 #define LIBRE 0
 #define OCUPADO 1
 
@@ -31,3 +31,6 @@ void mostrarListaEmpleados(eEmpleado [], int);
 void mostrarEmpleado(eEmpleado);
 void modificarDatos(eEmpleado[], int);
 void hardcodearDatosEmpleados(eEmpleado[], int);
+float importeMaximo(eEmpleado[], int);
+void buscarMayorSueldo(eEmpleado[], int);
+int cantidadCarlos(eEmpleado[], int);
