@@ -19,19 +19,29 @@ void mostrarMenu(int tipoMenu)
         printf("\n 1. Dar de alta a un empleado.");
         printf("\n 2. Dar de baja a un empleado.");
         printf("\n 3. Modificar datos.");
-        printf("\n 4. Mostrar todos los empleados.");
+        printf("\n 4. Informar sobre...");
         printf("\n 5. Informar mayor/es sueldo/s bruto.");
         printf("\n 6. Salir.\n\n");
         printf("--------------------------------------\n\n");
     }
-    if(tipoMenu == 1)
+    else if(tipoMenu == 1)
     {
         printf("-----------------------------------\n");
         printf("\n 1. Modificar nombre.");
         printf("\n 2. Modificar sexo.");
         printf("\n 3. Modificar cantidad de horas.");
-        printf("\n 4. Salir.\n\n");
+        printf("\n 4. Modificar sector.");
+        printf("\n 5. Salir.\n\n");
         printf("-----------------------------------\n\n");
+    }
+    else if(tipoMenu == 2){
+        printf("---------------------------------------------\n");
+        printf("\n 1. Mostrar todos los empleados.");
+        printf("\n 2. Mostrar todos los empleados por sector.");
+        printf("\n 3. Mostrar total de sueldos por sector.");
+        printf("\n 4. Mostrar el sector con mas empleados.");
+        printf("\n 5. Salir.\n\n");
+        printf("---------------------------------------------\n\n");
     }
 }
 
@@ -96,8 +106,9 @@ void elegirOpcion()
                 else
                 {
                     printf("\nError: No hay empleados cargados en el sistema.\n\n");
+                    system("pause");
                 }
-                system("pause");
+
                 break;
             case 5:
                 buscarMayorSueldo(lista, T, sectores, 3);
