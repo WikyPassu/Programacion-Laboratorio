@@ -19,9 +19,10 @@
 
 1555933790 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.h
 
-1555933790 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
+1555987837 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"Entradas.h"
 	"Empleado.h"
 
@@ -49,10 +50,10 @@
 	"Entradas.h"
 	"Empleado.h"
 
-1555963646 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.h
+1555986948 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.h
 	"Entradas.h"
 
-1555963272 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.c
+1555987768 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>

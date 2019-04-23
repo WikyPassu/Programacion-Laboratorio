@@ -32,7 +32,7 @@ int borrarUno(eEmpleado[], int, int);
 void cargarEmpleado(eEmpleado [], int, eSector[], int);
 void mostrarListaEmpleados(eEmpleado [], int, eSector[], int);
 void mostrarEmpleado(eEmpleado, eSector[], int);
-void modificarDatos(eEmpleado[], int);
+void modificarDatos(eEmpleado[], int, eSector[], int);
 void hardcodearDatosEmpleados(eEmpleado[], int);
 float importeMaximo(eEmpleado[], int);
 void buscarMayorSueldo(eEmpleado[], int, eSector[], int);
