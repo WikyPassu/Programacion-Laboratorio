@@ -108,7 +108,6 @@ void elegirOpcion()
                     printf("\nError: No hay empleados cargados en el sistema.\n\n");
                     system("pause");
                 }
-
                 break;
             case 5:
                 buscarMayorSueldo(lista, T, sectores, 3);

@@ -11,15 +11,15 @@
 
 1555337939 c:\users\alumno\desktop\programacion-laboratorio-master\estructuras\entradas.h
 
-1555933790 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.c
+1556031004 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
 	"Entradas.h"
 
-1555933790 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.h
+1556031004 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\entradas.h
 
-1555987837 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
+1556392370 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -51,10 +51,10 @@
 	"Entradas.h"
 	"Empleado.h"
 
-1555986948 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.h
+1556483483 c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.h
 	"Entradas.h"
 
-1555987768 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.c
+1556483989 source:c:\users\alan_\desktop\archivos varios\programacion-laboratorio\estructuras\empleado.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
