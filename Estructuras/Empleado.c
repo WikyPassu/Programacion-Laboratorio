@@ -82,9 +82,9 @@ eSector pedirSector(eSector sectores[], int ts)
     int i, sector;
     eSector sectorReturn;
     for(i=0; i<ts; i++)
-        {
-            printf("\n%d. %s", sectores[i].idSector, sectores[i].descripcion);
-        }
+    {
+        printf("\n%d. %s", sectores[i].idSector, sectores[i].descripcion);
+    }
     printf("\n\n");
     sector = getInt("id del sector: ");
     for(i=0; i<ts; i++)
@@ -202,8 +202,7 @@ void modificarDatos(eEmpleado lista[], int tam, eSector sectores[], int ts)
 
 void mostrarListaEmpleados(eEmpleado lista[], int tam, eSector sectores[], int ts)
 {
-    int i, j, opcion, maxEmp, flag = 0, flag2 = 0;
-    auxSector auxListaSector[3];
+    int i, opcion;
     do
     {
         mostrarMenu(2);
@@ -223,7 +222,7 @@ void mostrarListaEmpleados(eEmpleado lista[], int tam, eSector sectores[], int t
             system("pause");
             break;
         case 2:
-            for(i=0; i<ts; i++){
+            /*for(i=0; i<ts; i++){
                 printf("\n%s:\n\n", sectores[i].descripcion);
                 for(j=0; j<tam; j++){
                     if(lista[j].idSector == sectores[i].idSector && lista[j].estado == OCUPADO){
@@ -232,46 +231,51 @@ void mostrarListaEmpleados(eEmpleado lista[], int tam, eSector sectores[], int t
                 }
             }
             printf("\n");
-            system("pause");
+            system("pause");*/
+            mostrarEmpleadosPorSector(lista, tam, sectores, ts);
             break;
         case 3:
-            for(i=0; i<ts; i++){
+            /*for(i=0; i<ts; i++){
                 printf("\n%s:\n\n", sectores[i].descripcion);
                 auxListaSector[i].idSector = sectores[i].idSector;
+                strcpy(auxListaSector[i].descripcion, sectores[i].descripcion);
+                auxListaSector[i].acumSueldo = 0;
                 for(j=0; j<tam; j++){
-                    if(lista[j].idSector == sectores[i].idSector && lista[j].estado == OCUPADO && flag == 0){
+                    if(lista[j].idSector == auxListaSector[i].idSector && lista[j].estado == OCUPADO){
                         auxListaSector[i].acumSueldo += lista[j].sueldoNeto;
                     }
                 }
                 printf("Total de sueldos: %.2f\n", auxListaSector[i].acumSueldo);
             }
-            flag = 1;
             printf("\n");
-            system("pause");
+            system("pause");*/
+            mostrarTotalSueldosPorSector(lista, tam, sectores, ts);
             break;
         case 4:
-            for(i=0; i<ts; i++){
+            /*for(i=0; i<ts; i++){
                 auxListaSector[i].idSector = sectores[i].idSector;
+                strcpy(auxListaSector[i].descripcion, sectores[i].descripcion);
                 auxListaSector[i].contEmpleados = 0;
                 for(j=0; j<tam; j++){
-                    if(lista[j].idSector == sectores[i].idSector && lista[j].estado == OCUPADO){
+                    if(lista[j].idSector == auxListaSector[i].idSector && lista[j].estado == OCUPADO){
                         auxListaSector[i].contEmpleados++;
                     }
-                    if(auxListaSector[i].contEmpleados > maxEmp || flag2 == 0){
+                    if(auxListaSector[i].contEmpleados > maxEmp || flag == 0){
                         maxEmp = auxListaSector[i].contEmpleados;
-                        flag2 = 1;
+                        flag = 1;
                     }
                 }
-                printf("\nEl sector %s tiene %d empleados.", sectores[i].descripcion, auxListaSector[i].contEmpleados);
+                printf("\nEl sector %s tiene %d empleados.", auxListaSector[i].descripcion, auxListaSector[i].contEmpleados);
             }
             printf("\n\nSector/es con mayor cantidad de empleados:\n");
             for(i=0; i<ts; i++){
                 if(auxListaSector[i].contEmpleados == maxEmp){
-                    printf("\n%s - %d empleados.", sectores[i].descripcion, maxEmp);
+                    printf("\n%s - %d empleados.", auxListaSector[i].descripcion, maxEmp);
                 }
             }
             printf("\n\n");
-            system("pause");
+            system("pause");*/
+            calcularCantidadEmpleados(lista, tam, sectores, ts);
             break;
         case 5:
             break;
@@ -297,6 +301,105 @@ void mostrarEmpleado(eEmpleado unEmpleado, eSector sectores[], int ts)
         }
     }
     printf("%d - %s - %c - %.2f - %.2f - %s\n", unEmpleado.legajo, unEmpleado.nombre, unEmpleado.sexo, unEmpleado.sueldoBruto, unEmpleado.sueldoNeto, descripcionSector);
+}
+
+void mostrarEmpleadosPorSector(eEmpleado lista[], int tam, eSector sectores[], int ts)
+{
+    int i, j;
+    for(i=0; i<ts; i++)
+    {
+        printf("\n%s:\n\n", sectores[i].descripcion);
+        for(j=0; j<tam; j++)
+        {
+            if(lista[j].idSector == sectores[i].idSector && lista[j].estado == OCUPADO)
+            {
+                printf("%d - %s - %c - %.2f - %.2f\n", lista[j].legajo, lista[j].nombre, lista[j].sexo, lista[j].sueldoBruto, lista[j].sueldoNeto);
+            }
+        }
+    }
+    printf("\n");
+    system("pause");
+}
+
+void mostrarTotalSueldosPorSector(eEmpleado lista[], int tam, eSector sectores[], int ts)
+{
+    int i, j;
+    auxSector auxListaSector[ts];
+    for(i=0; i<ts; i++)
+    {
+        printf("\n%s:\n\n", sectores[i].descripcion);
+        auxListaSector[i].idSector = sectores[i].idSector;
+        strcpy(auxListaSector[i].descripcion, sectores[i].descripcion);
+        auxListaSector[i].acumSueldo = 0;
+        for(j=0; j<tam; j++)
+        {
+            if(lista[j].idSector == auxListaSector[i].idSector && lista[j].estado == OCUPADO)
+            {
+                auxListaSector[i].acumSueldo += lista[j].sueldoNeto;
+            }
+        }
+        printf("Total de sueldos: %.2f\n", auxListaSector[i].acumSueldo);
+    }
+    printf("\n");
+    system("pause");
+}
+
+void calcularCantidadEmpleados(eEmpleado lista[], int tam, eSector sectores[], int ts)
+{
+    int i, j, maxEmp, flag = 0;
+    auxSector auxListaSector[ts];
+    for(i=0; i<ts; i++)
+    {
+        auxListaSector[i].idSector = sectores[i].idSector;
+        strcpy(auxListaSector[i].descripcion, sectores[i].descripcion);
+        auxListaSector[i].contEmpleados = 0;
+        for(j=0; j<tam; j++)
+        {
+            if(lista[j].idSector == auxListaSector[i].idSector && lista[j].estado == OCUPADO)
+            {
+                auxListaSector[i].contEmpleados++;
+            }
+            if(auxListaSector[i].contEmpleados > maxEmp || flag == 0)
+            {
+                maxEmp = auxListaSector[i].contEmpleados;
+                flag = 1;
+            }
+        }
+    }
+    mostrarSectorMayorEmp(auxListaSector, ts, maxEmp);
+}
+/*
+int buscarMaxEmpleados(auxSector auxListaSector[], int tsa)
+{
+    int j, maxEmp, flag = 0;
+    for(j=0; j<tsa; j++)
+    {
+        if(auxListaSector[j].contEmpleados > maxEmp || flag == 0)
+        {
+            maxEmp = auxListaSector[j].contEmpleados;
+            flag = 1;
+        }
+    }
+    return maxEmp;
+}
+*/
+void mostrarSectorMayorEmp(auxSector auxListaSector[], int tsa, int maxEmp)
+{
+    int i, j;
+    for(j=0; j<tsa; j++)
+    {
+        printf("\nEl sector %s tiene %d empleados.", auxListaSector[j].descripcion, auxListaSector[j].contEmpleados);
+    }
+    printf("\n\nSector/es con mayor cantidad de empleados:\n");
+    for(i=0; i<tsa; i++)
+    {
+        if(auxListaSector[i].contEmpleados == maxEmp)
+        {
+            printf("\n%s - %d empleados.", auxListaSector[i].descripcion, maxEmp);
+        }
+    }
+    printf("\n\n");
+    system("pause");
 }
 
 float importeMaximo(eEmpleado lista[], int tam)

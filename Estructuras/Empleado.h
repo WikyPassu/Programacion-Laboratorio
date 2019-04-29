@@ -6,6 +6,7 @@
 typedef struct
 {
     int idSector;
+    char descripcion[30];
     float acumSueldo;
     int contEmpleados;
 } auxSector;
@@ -43,6 +44,11 @@ eSector pedirSector(eSector[], int);
 void modificarDatos(eEmpleado[], int, eSector[], int);
 void mostrarListaEmpleados(eEmpleado [], int, eSector[], int);
 void mostrarEmpleado(eEmpleado, eSector[], int);
+
+void mostrarEmpleadosPorSector(eEmpleado[], int, eSector[], int);
+void mostrarTotalSueldosPorSector(eEmpleado[], int, eSector[], int);
+void calcularCantidadEmpleados(eEmpleado[], int, eSector[], int);
+void mostrarSectorMayorEmp(auxSector[], int, int);
 
 float importeMaximo(eEmpleado[], int);
 void buscarMayorSueldo(eEmpleado[], int, eSector[], int);

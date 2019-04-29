@@ -61,3 +61,28 @@
 	"Entradas.h"
 	"Empleado.h"
 
+1556031004 source:c:\users\alumno\desktop\estructuras\entradas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+
+1556031004 c:\users\alumno\desktop\estructuras\entradas.h
+
+1556485280 source:c:\users\alumno\desktop\estructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+	"Empleado.h"
+
+1556550085 c:\users\alumno\desktop\estructuras\empleado.h
+	"Entradas.h"
+
+1556541175 source:c:\users\alumno\desktop\estructuras\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Entradas.h"
+	"Empleado.h"
+
